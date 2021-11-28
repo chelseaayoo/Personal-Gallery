@@ -1,6 +1,6 @@
 from django.db import models
 import datetime 
-# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 # Create your models here.
 class Location(models.Model):
     name = models.CharField(max_length=100)
@@ -32,7 +32,7 @@ class Image(models.Model):
     loc =  models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    # image = CloudinaryField('image')
+    image = CloudinaryField('image')
 
     def __str__(self):
         return self.image.url
