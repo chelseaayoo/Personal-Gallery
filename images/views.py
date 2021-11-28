@@ -22,13 +22,13 @@ def search(request):
         message = "You haven't searched for any category"
         return render(request,"search.html",{"message":message})
 
-# def image(request,image_id):
-#     try:
-#         image = Image.get_image_by_id(image_id)
+def image(request,image_id):
+    try:
+        image = Image.get_image_by_id(image_id)
 
-#     except ObjectDoesNotExist:
-#         raise Http404()
-#     return render(request,"image.html",{"image":image})
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,"image.html",{"image":image})
 
 # def location(request):
 #     if 'location' in request.GET and request.GET["location"]:
