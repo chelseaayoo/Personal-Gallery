@@ -131,3 +131,10 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# adding config
+cloudinary.config( 
+  cloud_name = "anipherchelsea", 
+  api_key = "864223959977843", 
+  api_secret = "2KxfzrDY68IxWoWL9v78Sn9lZzk" 
+)
