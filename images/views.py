@@ -30,13 +30,13 @@ def image(request,image_id):
         raise Http404()
     return render(request,"image.html",{"image":image})
 
-# def location(request):
-#     if 'location' in request.GET and request.GET["location"]:
-#         location = request.GET.get("location")
-#         searched_images = Image.filter_by_location(location)
-#         message = f"{location}"
-#         return render(request,"search.html",{"message":message,"images":searched_images})
+def location(request):
+    if 'location' in request.GET and request.GET["location"]:
+        location = request.GET.get("location")
+        searched_images = Image.filter_by_location(location)
+        message = f"{location}"
+        return render(request,"search.html",{"message":message,"images":searched_images})
 
-#     else:
-#         message = "select location to filter"
-#         return render(request,"search.html",{"message":message})
+    else:
+        message = "select location to filter"
+        return render(request,"search.html",{"message":message})
