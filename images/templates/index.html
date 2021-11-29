@@ -1,0 +1,91 @@
+{%extends 'base.html'%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~</title>
+</head>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+<style>
+   body{
+       background-color: burlywood;
+   }
+
+</style>
+
+
+{% block content %}
+<!-- <h1 class="text-center" style="margin-top: 10px;  color: black;">Welcome to my ~ Gallery App ~ </h1> -->
+
+
+<body>
+    <div class="body" style="background-color: burlywood;">
+
+    <div class="container">
+        <div class="row">
+            <div  class="col-md-9 mb-5 mt-2 heading text-center">
+                <div  class=" card btn btn-outline-primary mb-3  " style="box-shadow:grey 0px 0px 15px 0px;">
+                    <div  class="card-bodystyle="color: black;>
+                        <p class="text ">
+                            <h2 style="font-style: italic; font-weight: bolder; color: black;">CHELSEA TO THE WORLD</h2>
+                           <h1 style="font-size: 30px; text-align: center; font-family: 'Scheherazade New', serif;"><img style="width: 400px; height: 100px;"src=https://images.unsplash.com/photo-1528569937393-ee892b976859?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG8lMjBhbGJ1bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" {{ photo.image.url }}"  alt="">  </h1>
+                           <p class="text-center" style="font-family: 'Scheherazade New', serif; font-style: oblique;"> <span>You can: <br> View the images' categories and their location <br> Copy the link and share with friends </span></p>
+                          <h4 style="color:navy; font-style:oblique;"> PHOTOS ARE STORIES WE FAIL TO PUT IN WORDS</h4>
+
+                        </p>
+                        <!-- <iframe src="https://nfl.com/" frameborder="0"></iframe> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row  mb-5" style="margin-bottom: 300px;">
+            {% for photo in photos %}
+            <div class="container col-md-3" style="margin-bottom: 40px; ">
+                <div class="container" style="border: none; padding-left: 30px;" >
+                    <img style="width: 300px; height: 200px;  border: none;"data-target="#staticBackdropLabel-{{photo.image.url}}" src="{{ photo.image.url }}" alt="img">
+                    <h6 class="category mt-3" style="font-family: 'Scheherazade New'; font-weight:550;">Category: <span>{{photo.category.name}}</span></h6>
+                    <button style="font-weight: bold;" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop-{{photo.id}}" >View</button>
+                </div>
+               
+            </div>
+            <div class=" col-md-3">
+                <div class="modal fade" id="staticBackdrop-{{photo.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel-{{photo.image.url}}"><img style="width: 400px; height: 200px;  border: none;" src="{{ photo.image.url }}" alt=""></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <span style="color: rgb(8, 8, 104);">ID:</span>  {{photo.id}} <br>
+                        <span style="color: rgb(8, 8, 104);">Category:</span>  {{photo.category.name}} <br>
+                        <span style="color: rgb(8, 8, 104);">Location:</span> {{photo.location.name}} <br>
+                        <span style="color: rgb(8, 8, 104);">Description:</span> {{photo.description}}
+                        </div>
+                        <div>
+                          <input class="form-control input-lg" type="text" value="{{image.image.url}}" id="{{photo.id}}.url">
+                    <button class="btn btn-success btn-sm"
+                        onclick="copyLink('{image.image.url')">CopyImageAddress</button><br><br>
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close
+                    </button>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+    </div>
+
+
+</body>
+{% endblock %}
+
+</html>
