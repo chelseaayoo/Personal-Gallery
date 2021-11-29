@@ -2,7 +2,7 @@
 This is a Gallery project which shows several pictures in my collection.Once you click any picture, you will be able to find all its description there. You can also decide to search for the categories of different images, that is, by using the search form then clicking the search button.
 
 ## Screenshot-images
-
+<img src="/home/anipherchelsea/Documents/Personal-Gallery/media/projectscreenshot.png">
 
 ## Author
 ONYANGO ANIPHER CHELSEA
