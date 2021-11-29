@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt
 from cloudinary.models import CloudinaryField
+from django.db.models.fields import TextField
 
 
 # Create your models here.
@@ -21,7 +22,7 @@ class Location(models.Model):
 class Image(models.Model):
     image = CloudinaryField('image')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    location = models.ManyToManyField(Location) 
+    location = models.ManyToManyField(Location)  
     description = models.TextField()
 
     @classmethod
