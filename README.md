@@ -45,6 +45,7 @@ E_MAIL -chelsea.ayoo@student.moringaschool.com
 Project Link: https://github.com/chelseaayoo/Personal-Gallery
 
 ## License
+https://github.com/chelseaayoo/Personal-Gallery/blob/master/licence
 
 
 ## Copyright
